@@ -1,0 +1,447 @@
+[TITLE]
+;;Project Title/Notes
+
+[OPTIONS]
+;;Option             Value
+FLOW_UNITS           LPS
+INFILTRATION         MODIFIED_GREEN_AMPT
+FLOW_ROUTING         KINWAVE
+LINK_OFFSETS         DEPTH
+MIN_SLOPE            0
+ALLOW_PONDING        NO
+SKIP_STEADY_STATE    NO
+
+START_DATE           01/01/2024
+START_TIME           00:00:00
+REPORT_START_DATE    01/01/2024
+REPORT_START_TIME    00:00:00
+END_DATE             01/01/2024
+END_TIME             18:00:59
+SWEEP_START          01/01
+SWEEP_END            01/30
+DRY_DAYS             0
+REPORT_STEP          00:05:00
+WET_STEP             00:05:00
+DRY_STEP             00:15:00
+ROUTING_STEP         0:00:05 
+RULE_STEP            00:00:00
+
+INERTIAL_DAMPING     PARTIAL
+NORMAL_FLOW_LIMITED  BOTH
+FORCE_MAIN_EQUATION  H-W
+VARIABLE_STEP        0.75
+LENGTHENING_STEP     0
+MIN_SURFAREA         1.167
+MAX_TRIALS           8
+HEAD_TOLERANCE       0.0015
+SYS_FLOW_TOL         5
+LAT_FLOW_TOL         5
+MINIMUM_STEP         0.5
+THREADS              1
+
+[EVAPORATION]
+;;Data Source    Parameters
+;;-------------- ----------------
+CONSTANT         0.0
+DRY_ONLY         NO
+
+[RAINGAGES]
+;;Name           Format    Interval SCF      Source    
+;;-------------- --------- ------ ------ ----------
+R1               INTENSITY 1:00     1.0      TIMESERIES TS1             
+
+[SUBCATCHMENTS]
+;;Name           Rain Gage        Outlet           Area     %Imperv  Width    %Slope   CurbLen  SnowPack        
+;;-------------- ---------------- ---------------- -------- -------- -------- -------- -------- ----------------
+S1               R1               ALP1             6.7      25       186      0.5      0                        
+S2               R1               ALP2             14.1     25       346      0.5      0                        
+S3               R1               QNB7             4.8      25       236      0.5      0                        
+S4               R1               ALP9             10.9     25       195      0.5      0                        
+S5               R1               ALP11            13.3     25       249      0.5      0                        
+S6               R1               ALP14            8.1      25       143      0.5      0                        
+S7               R1               QNB3             4.7      25       221      0.5      0                        
+S8               R1               QNB9             4.3      25       207      0.5      0                        
+S9               R1               QNB8             6.9      25       187      0.5      0                        
+SE1              R1               ALP5             18.2     10       399      0.5      0                        
+SE2              R1               ALP7             8.1      10       136      0.5      0                        
+SE4              R1               ALP4             20.3     10       346      0.5      0                        
+SE3              R1               ALP6             9.3      10       265      0.5      0                        
+
+[SUBAREAS]
+;;Subcatchment   N-Imperv   N-Perv     S-Imperv   S-Perv     PctZero    RouteTo    PctRouted 
+;;-------------- ---------- ---------- ---------- ---------- ---------- ---------- ----------
+S1               0.025      0.15       1          2          0          OUTLET    
+S2               0.025      0.15       1          2          0          OUTLET    
+S3               0.025      0.15       1          2          0          OUTLET    
+S4               0.025      0.15       1          2          0          OUTLET    
+S5               0.025      0.15       1          2          0          OUTLET    
+S6               0.025      0.15       1          2          0          OUTLET    
+S7               0.025      0.15       1          2          0          OUTLET    
+S8               0.025      0.15       1          2          0          OUTLET    
+S9               0.025      0.15       1          2          0          OUTLET    
+SE1              0.01       0.1        0.05       0.05       25         OUTLET    
+SE2              0.01       0.1        0.05       0.05       25         OUTLET    
+SE4              0.01       0.1        0.05       0.05       25         OUTLET    
+SE3              0.01       0.1        0.05       0.05       25         OUTLET    
+
+[INFILTRATION]
+;;Subcatchment   Param1     Param2     Param3     Param4     Param5    
+;;-------------- ---------- ---------- ---------- ---------- ----------
+S1               75         25         .001       7          0         
+S2               75         25         .001       7          0         
+S3               75         25         .001       7          0         
+S4               75         25         .001       7          0         
+S5               75         25         .001       7          0         
+S6               75         25         .001       7          0         
+S7               75         25         .001       7          0         
+S8               75         25         .001       7          0         
+S9               75         25         .001       7          0         
+SE1              3.5        0.5        0.26                            
+SE2              3.5        0.5        0.26                            
+SE4              3.5        0.5        0.26                            
+SE3              3.5        0.5        0.26                            
+
+[JUNCTIONS]
+;;Name           Elevation  MaxDepth   InitDepth  SurDepth   Aponded   
+;;-------------- ---------- ---------- ---------- ---------- ----------
+ALP1             -3.22      5.57       0          0          0         
+ALP10            0.35       4.77       0          0          0         
+ALP11            2.049      4.231      0          0          0         
+ALP12            2.936      4.064      0          0          0         
+ALP13            3.598      4.742      0          0          0         
+ALP13A           4.823      4.204      0          0          0         
+ALP14            5.207      4.335      0          0          0         
+ALP2             -3.04      5.29       0          0          0         
+ALP3             -2.66      4.56       0          0          0         
+ALP3A            -2.545     5.435      0          0          0         
+ALP3B            -2.615     4.545      0          0          0         
+ALP4             -2.4       5.4        0          0          0         
+ALP5             -1.84      4.84       0          0          0         
+ALP6             -1.3       4.869      0          0          0         
+ALP7             -0.73      4.43       0          0          0         
+ALP8             -0.27      4.27       0          0          0         
+ALP9             -0.04      4.76       0          0          0         
+QNB1             1.05       3.29       0          0          0         
+QNB2             3.51       1.72       0          0          0         
+QNB3             3.87       2.72       0          0          0         
+QNB4             4.16       3.2        0          0          0         
+QNB5             4.36       3.73       0          0          0         
+QNB6             4.72       4.48       0          0          0         
+QNB7             5.07       5.27       0          0          0         
+QNB8             5.6        6.32       0          0          0         
+QNB8A            5.79       6.318      0          0          0         
+QNB9             5.93       6.267      0          0          0         
+
+[OUTFALLS]
+;;Name           Elevation  Type       Stage Data       Gated    Route To        
+;;-------------- ---------- ---------- ---------------- -------- ----------------
+HBM030           -8.567     FREE                        NO                       
+
+[CONDUITS]
+;;Name           From Node        To Node          Length     Roughness  InOffset   OutOffset  InitFlow   MaxFlow   
+;;-------------- ---------------- ---------------- ---------- ---------- ---------- ---------- ---------- ----------
+P-370            ALP1             HBM030           128.0      1.5        0          0          0          0         
+P-371            ALP10            ALP9             92.8       1.5        0          0          0          0         
+P-372            ALP11            ALP10            82.6       1.5        0          0          0          0         
+P-373            ALP12            ALP11            49.4       1.5        0          0          0          0         
+P-374            ALP13            ALP12            66.6       1.5        0          0          0          0         
+P-375            ALP13A           ALP13            57.4       1.5        0          0          0          0         
+P-376            ALP14            ALP13A           33.2       1.5        0          0          0          0         
+P-377            ALP2             ALP1             74.8       1.5        0          0          0          0         
+P-378            ALP3             ALP2             72.5       1.5        0          0          0          0         
+P-379            ALP3A            ALP3B            18.5       1.5        0          0          0          0         
+P-380            ALP3B            ALP3             12.1       1.5        0          0          0          0         
+P-381            ALP4             ALP3A            39.2       1.5        0          0          0          0         
+P-382            ALP5             ALP4             132.6      1.5        0          0          0          0         
+P-383            ALP6             ALP5             132.6      1.5        0          0          0          0         
+P-384            ALP7             ALP6             136.2      1.5        0          0          0          0         
+P-385            ALP8             ALP7             138.7      1.5        0          0          0          0         
+P-386            ALP9             ALP8             51.9       1.5        0          0          0          0         
+P-21876          QNB1             ALP8             3.3        1.5        0          0          0          0         
+P-21877          QNB2             QNB1             97.5       1.5        0          0          0          0         
+P-21878          QNB3             QNB2             66.1       1.5        0          0          0          0         
+P-21879          QNB4             QNB3             46.5       1.5        0          0          0          0         
+P-21880          QNB5             QNB4             36.5       1.5        0          0          0          0         
+P-21881          QNB6             QNB5             61.0       1.5        0          0          0          0         
+P-21882          QNB7             QNB6             68.5       1.5        0          0          0          0         
+P-21883          QNB8             QNB7             97.5       1.5        0          0          0          0         
+P-21884          QNB8A            QNB8             44.2       1.5        0          0          0          0         
+P-21885          QNB9             QNB8A            11.8       1.5        0          0          0          0         
+
+[XSECTIONS]
+;;Link           Shape        Geom1            Geom2      Geom3      Geom4      Barrels    Culvert   
+;;-------------- ------------ ---------------- ---------- ---------- ---------- ---------- ----------
+P-370            CIRCULAR     0.375            0          0          0          1                    
+P-371            CIRCULAR     0.375            0          0          0          1                    
+P-372            CIRCULAR     0.300            0          0          0          1                    
+P-373            CIRCULAR     0.300            0          0          0          1                    
+P-374            CIRCULAR     0.300            0          0          0          1                    
+P-375            CIRCULAR     0.300            0          0          0          1                    
+P-376            CIRCULAR     0.300            0          0          0          1                    
+P-377            CIRCULAR     0.375            0          0          0          1                    
+P-378            CIRCULAR     0.375            0          0          0          1                    
+P-379            CIRCULAR     0.375            0          0          0          1                    
+P-380            CIRCULAR     0.375            0          0          0          1                    
+P-381            CIRCULAR     0.375            0          0          0          1                    
+P-382            CIRCULAR     0.375            0          0          0          1                    
+P-383            CIRCULAR     0.375            0          0          0          1                    
+P-384            CIRCULAR     0.375            0          0          0          1                    
+P-385            CIRCULAR     0.375            0          0          0          1                    
+P-386            CIRCULAR     0.375            0          0          0          1                    
+P-21876          CIRCULAR     0.300            0          0          0          1                    
+P-21877          CIRCULAR     0.300            0          0          0          1                    
+P-21878          CIRCULAR     0.300            0          0          0          1                    
+P-21879          CIRCULAR     0.300            0          0          0          1                    
+P-21880          CIRCULAR     0.300            0          0          0          1                    
+P-21881          CIRCULAR     0.300            0          0          0          1                    
+P-21882          CIRCULAR     0.300            0          0          0          1                    
+P-21883          CIRCULAR     0.300            0          0          0          1                    
+P-21884          CIRCULAR     0.300            0          0          0          1                    
+P-21885          CIRCULAR     0.300            0          0          0          1                    
+
+[POLLUTANTS]
+;;Name           Units  Crain      Cgw        Crdii      Kdecay     SnowOnly   Co-Pollutant     Co-Frac    Cdwf       Cinit     
+;;-------------- ------ ---------- ---------- ---------- ---------- ---------- ---------------- ---------- ---------- ----------
+TSS              MG/L   0.0        0.0        0.0        0.0        NO         *                0.0        0.0        0.0       
+Lead             UG/L   0.0        0.0        0.0        0.0        NO         TSS              0.25       0.0        0.0       
+
+[LANDUSES]
+;;               Sweeping   Fraction   Last      
+;;Name           Interval   Available  Swept     
+;;-------------- ---------- ---------- ----------
+Residential      0          0          0         
+Undeveloped      0          0          0         
+
+[COVERAGES]
+;;Subcatchment   Land Use         Percent   
+;;-------------- ---------------- ----------
+S1               Residential      75        
+S1               Undeveloped      25        
+S2               Residential      75        
+S2               Undeveloped      25        
+S3               Residential      75        
+S3               Undeveloped      25        
+S4               Residential      75        
+S4               Undeveloped      25        
+S5               Residential      75        
+S5               Undeveloped      25        
+S6               Residential      75        
+S6               Undeveloped      25        
+S7               Residential      75        
+S7               Undeveloped      25        
+S8               Residential      75        
+S8               Undeveloped      25        
+S9               Residential      75        
+S9               Undeveloped      25        
+SE1              Residential      25        
+SE1              Undeveloped      75        
+SE2              Residential      25        
+SE2              Undeveloped      75        
+SE4              Residential      25        
+SE4              Undeveloped      75        
+SE3              Residential      25        
+SE3              Undeveloped      75        
+
+[LOADINGS]
+;;Subcatchment   Pollutant        Buildup   
+;;-------------- ---------------- ----------
+
+[BUILDUP]
+;;Land Use       Pollutant        Function   Coeff1     Coeff2     Coeff3     Per Unit  
+;;-------------- ---------------- ---------- ---------- ---------- ---------- ----------
+Residential      TSS              POW        50         1          1          AREA      
+Residential      Lead             NONE       0.0        0.0        0.0        AREA      
+Undeveloped      TSS              POW        25         0.5        1          AREA      
+Undeveloped      Lead             NONE       0.0        0.0        0.0        AREA      
+
+[WASHOFF]
+;;Land Use       Pollutant        Function   Coeff1     Coeff2     SweepRmvl  BmpRmvl   
+;;-------------- ---------------- ---------- ---------- ---------- ---------- ----------
+Residential      TSS              EMC        100        0.0        0.0        0.0       
+Residential      Lead             EMC        0.0        0.0        0.0        0.0       
+Undeveloped      TSS              EMC        50         0.0        0.0        0.0       
+Undeveloped      Lead             EMC        0.0        0.0        0.0        0.0       
+
+[DWF]
+;;Node           Constituent      Baseline   Patterns  
+;;-------------- ---------------- ---------- ----------
+ALP1             FLOW             .11        ""
+ALP11            FLOW             .29        ""
+ALP14            FLOW             .13        "Month" "Hour"
+ALP2             FLOW             .23        ""
+ALP4             FLOW             0.33      
+ALP5             FLOW             0.3       
+ALP6             FLOW             0.15      
+ALP7             FLOW             0.13      
+ALP9             FLOW             .24        ""
+QNB3             FLOW             .1         ""
+QNB7             FLOW             .08        ""
+QNB8             FLOW             .15        ""
+QNB9             FLOW             .07        ""
+
+[TIMESERIES]
+;;Name           Date       Time       Value     
+;;-------------- ---------- ---------- ----------
+TS1                         0          0         
+TS1                         1          0.0005    
+TS1                         2          0.0008    
+TS1                         3          0.0007    
+TS1                         4          0.0005    
+TS1                         5          0.0001    
+TS1                         6          0         
+
+[PATTERNS]
+;;Name           Type       Multipliers
+;;-------------- ---------- -----------
+Month            MONTHLY    0.9   0.9   0.9   0.9   1     1.05 
+Month                       1.1   1.02  1.0   0.9   0.9   0.9  
+;
+Hour             HOURLY     0.4   0.25  0.2   0.15  0.2   0.25 
+Hour                        0.65  1.25  1.5   1.8   1.7   1.6  
+Hour                        1.4   1     0.9   0.9   0.9   1.0  
+Hour                        1.4   1.3   0.8   0.9   0.8   0.5  
+
+[REPORT]
+;;Reporting Options
+SUBCATCHMENTS ALL
+NODES ALL
+LINKS ALL
+
+[TAGS]
+
+[MAP]
+DIMENSIONS 320968.671 5807684.018 323551.397 5809526.889
+Units      None
+
+[COORDINATES]
+;;Node           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+ALP1             321372.931         5808036.386       
+ALP10            322512.038         5808865.775       
+ALP11            322629.179         5808897.216       
+ALP12            322696.937         5808931.824       
+ALP13            322791.540         5808908.914       
+ALP13A           322872.935         5808888.929       
+ALP14            322919.447         5808876.987       
+ALP2             321429.923         5808190.175       
+ALP3             321491.220         5808336.165       
+ALP3A            321521.654         5808390.028       
+ALP3B            321503.279         5808357.369       
+ALP4             321560.270         5808459.489       
+ALP5             321744.882         5808538.212       
+ALP6             321929.493         5808617.178       
+ALP7             322116.401         5808714.667       
+ALP8             322306.755         5808814.106       
+ALP9             322380.399         5808832.142       
+QNB1             322309.770         5808808.257       
+QNB2             322397.051         5808610.597       
+QNB3             322475.576         5808514.327       
+QNB4             322528.117         5808446.084       
+QNB5             322569.030         5808400.508       
+QNB6             322618.700         5808275.234       
+QNB7             322675.404         5808134.850       
+QNB8             322812.929         5808195.050       
+QNB8A            322872.935         5808212.354       
+QNB9             322888.726         5808216.985       
+HBM030           321275.601         5807769.509       
+
+[VERTICES]
+;;Link           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+
+[Polygons]
+;;Subcatchment   X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+S1               321086.068         5807949.263       
+S1               321251.141         5807855.960       
+S1               321350.594         5808074.349       
+S1               321353.670         5808276.333       
+S1               321103.498         5808357.331       
+S2               321916.559         5808149.196       
+S2               321628.450         5807767.785       
+S2               321370.075         5807903.124       
+S2               321576.160         5808211.739       
+S3               322664.001         5807818.024       
+S3               322280.540         5807903.124       
+S3               322312.324         5808020.008       
+S3               322502.004         5808205.587       
+S4               322294.894         5809426.717       
+S4               322488.675         5808892.537       
+S4               322205.693         5808867.930       
+S4               321993.456         5809362.123       
+S5               322552.244         5809433.894       
+S5               322718.342         5808965.333       
+S5               322548.143         5808895.613       
+S5               322348.209         5809435.945       
+S6               322843.428         5809407.236       
+S6               322941.857         5809216.531       
+S6               322959.287         5808904.840       
+S6               322751.152         5808973.535       
+S6               322666.052         5809443.122       
+S7               322719.367         5808777.703       
+S7               322994.147         5808404.495       
+S7               322747.050         5808313.243       
+S7               322669.128         5808449.608       
+S7               322468.169         5808596.226       
+S7               322379.994         5808793.083       
+S8               323216.637         5808637.238       
+S8               323329.420         5808286.586       
+S8               323170.498         5808251.726       
+S8               322985.945         5808255.827       
+S8               322999.274         5808315.294       
+S8               323034.134         5808428.077       
+S8               322871.111         5808757.197       
+S9               323296.610         5808205.587       
+S9               323410.418         5808151.246       
+S9               323434.000         5807930.807       
+S9               323289.433         5807794.443       
+S9               322738.848         5807811.873       
+S9               322737.823         5807923.630       
+S9               322729.620         5808114.336       
+SE1              321556.679         5808974.561       
+SE1              321722.777         5808869.980       
+SE1              321852.990         5808644.414       
+SE1              321728.929         5808558.289       
+SE1              321499.262         5808519.328       
+SE1              321344.442         5808610.580       
+SE1              321223.457         5808932.523       
+SE2              321989.355         5809213.455       
+SE2              322084.708         5809049.407       
+SE2              322160.580         5808809.487       
+SE2              322069.328         5808724.388       
+SE2              321865.294         5808682.351       
+SE2              321841.712         5808845.373       
+SE2              321944.242         5809033.003       
+SE2              321843.763         5809223.708       
+SE4              321991.406         5808545.986       
+SE4              322332.830         5808109.209       
+SE4              322261.059         5808048.716       
+SE4              322138.023         5807984.122       
+SE4              322022.165         5808008.730       
+SE4              321946.292         5808182.005       
+SE4              321615.121         5808421.925       
+SE3              322311.299         5808681.325       
+SE3              322396.398         5808503.949       
+SE3              322572.750         5808272.231       
+SE3              322545.067         5808233.270       
+SE3              322442.537         5808215.840       
+SE3              322325.653         5808204.561       
+SE3              322039.595         5808584.947       
+SE3              322244.654         5808735.666       
+
+[SYMBOLS]
+;;Gage           X-Coord            Y-Coord           
+;;-------------- ------------------ ------------------
+R1               321598.699         5809102.748       
+
+
+[PROFILES]
+;;Name           Links     
+;;-------------- ----------
+"Troncal         " P-376 P-375 P-374 P-373 P-372
+"Troncal         " P-371 P-386 P-385 P-384 P-383
+"Troncal         " P-382 P-381 P-379 P-380 P-378
+"Troncal         " P-377 P-370
+"Ramal           " P-21885 P-21884 P-21883 P-21882 P-21881
+"Ramal           " P-21880 P-21879 P-21878 P-21877 P-21876
+"Ramal           " P-385
